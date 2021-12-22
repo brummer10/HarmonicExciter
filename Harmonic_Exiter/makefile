@@ -75,7 +75,7 @@ $(RESOURCEHEADER): $(RESOURCES_OBJ)
 ifdef USE_XXD
 $(RESOURCES_OBJ): $(RESOURCES)
 	@#use this line to regenerate the *.c files from used images
-	@cd $(RESOURCES_DIR) && xxd -i $(patsubst %.o,%.png,$@) > $(patsubst %.o,%.c,$@)
+	@#cd $(RESOURCES_DIR) && xxd -i $(patsubst %.o,%.png,$@) > $(patsubst %.o,%.c,$@)
 	$(CC) -c $(RESOURCES_DIR)$(patsubst %.o,%.c,$@) -o $@
 	$(AR) rcs $(patsubst %.o,%.a,$@) $@
 else ifdef USE_LDD
