@@ -3,5 +3,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 <https://github.com/brummer10/HarmonicExciter>
     a lv2:Plugin ;
-    lv2:binary <Harmonic_Exiter.so> ;
-    rdfs:seeAlso <Harmonic_Exiter.ttl> .
+    lv2:binary <Harmonic_Exciter.so> ;
+    rdfs:seeAlso <Harmonic_Exciter.ttl> .

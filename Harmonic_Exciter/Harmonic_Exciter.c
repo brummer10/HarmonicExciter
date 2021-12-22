@@ -85,7 +85,7 @@ void plugin_set_window_size(int *w,int *h,const char * plugin_uri, float scale) 
 }
 
 const char* plugin_set_name() {
-    return "Harmonic Exiter"; //set plugin name to display on UI
+    return "Harmonic Exciter"; //set plugin name to display on UI
 }
 
 void plugin_create_controller_widgets(X11_UI *ui, const char * plugin_uri, float scale) {

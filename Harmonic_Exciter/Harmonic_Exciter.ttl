@@ -23,7 +23,7 @@
    a lv2:Plugin ,
        lv2:DynamicsPlugin ;
    doap:maintainer <urn:name#me> ;
-   doap:name "Harmonic Exiter" ;
+   doap:name "Harmonic Exciter" ;
    lv2:project <https://github.com/brummer10/HarmonicExciter> ;
    lv2:requiredFeature urid:map ;
    lv2:optionalFeature lv2:hardRTCapable ;
@@ -101,7 +101,7 @@ rdfs:comment """
 
 <https://github.com/brummer10/HarmonicExciter_ui>
    a guiext:X11UI;
-   guiext:binary <Harmonic_Exiter_ui.so> ;
+   guiext:binary <Harmonic_Exciter_ui.so> ;
        lv2:extensionData guiext::idle ;
        lv2:extensionData guiext:resize ;
        lv2:extensionData guiext:idleInterface ;

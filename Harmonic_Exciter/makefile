@@ -26,7 +26,7 @@
 	endif
 
 
-	NAME = Harmonic_Exiter
+	NAME = Harmonic_Exciter
 	space := $(subst ,, )
 	EXEC_NAME := $(subst $(space),_,$(NAME))
 	BUNDLE = $(EXEC_NAME).lv2
@@ -100,6 +100,7 @@ $(EXEC_NAME):$(RESOURCES_OBJ)
 
 install :
 ifneq ("$(wildcard ./$(BUNDLE))","")
+	@rm -rf $(INSTALL_DIR)/Harmonic_Exiter.lv2
 	@mkdir -p $(DESTDIR)$(INSTALL_DIR)/$(BUNDLE)
 	cp -r ./$(BUNDLE)/* $(DESTDIR)$(INSTALL_DIR)/$(BUNDLE)
 	@echo ". ., done"

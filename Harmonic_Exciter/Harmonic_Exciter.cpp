@@ -21,9 +21,9 @@
 
 ////////////////////////////// PLUG-IN CLASS ///////////////////////////
 
-namespace harmonic_exiter {
+namespace harmonic_exciter {
 
-class Xharmonic_exiter
+class Xharmonic_exciter
 {
 private:
     harmonic_exciter::Dsp* dsp;
@@ -68,12 +68,12 @@ public:
     static LV2_Handle instantiate(const LV2_Descriptor* descriptor,
                                 double rate, const char* bundle_path,
                                 const LV2_Feature* const* features);
-    Xharmonic_exiter();
-    ~Xharmonic_exiter();
+    Xharmonic_exciter();
+    ~Xharmonic_exciter();
 };
 
 // constructor
-Xharmonic_exiter::Xharmonic_exiter() :
+Xharmonic_exciter::Xharmonic_exciter() :
     dsp(harmonic_exciter::plugin()),
     input0(NULL),
     output0(NULL),
@@ -88,11 +88,11 @@ Xharmonic_exiter::Xharmonic_exiter() :
     bypassed(false) {};
 
 // destructor
-Xharmonic_exiter::~Xharmonic_exiter() { };
+Xharmonic_exciter::~Xharmonic_exciter() { };
 
 ///////////////////////// PRIVATE CLASS  FUNCTIONS /////////////////////
 
-void Xharmonic_exiter::init_dsp_(uint32_t rate)
+void Xharmonic_exciter::init_dsp_(uint32_t rate)
 {
     dsp->init(rate);
     // set values for internal ramping
@@ -103,7 +103,7 @@ void Xharmonic_exiter::init_dsp_(uint32_t rate)
 }
 
 // connect the Ports used by the plug-in class
-void Xharmonic_exiter::connect_(uint32_t port,void* data)
+void Xharmonic_exciter::connect_(uint32_t port,void* data)
 {
     switch ((PortIndex)port)
     {
@@ -133,22 +133,22 @@ void Xharmonic_exiter::connect_(uint32_t port,void* data)
     }
 }
 
-void Xharmonic_exiter::activate_f()
+void Xharmonic_exciter::activate_f()
 {
     // allocate the internal DSP mem
 }
 
-void Xharmonic_exiter::clean_up()
+void Xharmonic_exciter::clean_up()
 {
     // delete the internal DSP mem
 }
 
-void Xharmonic_exiter::deactivate_f()
+void Xharmonic_exciter::deactivate_f()
 {
     // delete the internal DSP mem
 }
 
-void Xharmonic_exiter::run_dsp_(uint32_t n_samples)
+void Xharmonic_exciter::run_dsp_(uint32_t n_samples)
 {
     if(n_samples<1) return;
 
@@ -224,7 +224,7 @@ void Xharmonic_exiter::run_dsp_(uint32_t n_samples)
 #undef  harmonics_
 }
 
-void Xharmonic_exiter::connect_all__ports(uint32_t port, void* data)
+void Xharmonic_exciter::connect_all__ports(uint32_t port, void* data)
 {
     // connect the Ports used by the plug-in class
     connect_(port,data);
@@ -234,12 +234,12 @@ void Xharmonic_exiter::connect_all__ports(uint32_t port, void* data)
 ////////////////////// STATIC CLASS  FUNCTIONS  ////////////////////////
 
 LV2_Handle 
-Xharmonic_exiter::instantiate(const LV2_Descriptor* descriptor,
+Xharmonic_exciter::instantiate(const LV2_Descriptor* descriptor,
                             double rate, const char* bundle_path,
                             const LV2_Feature* const* features)
 {
     // init the plug-in class
-    Xharmonic_exiter *self = new Xharmonic_exiter();
+    Xharmonic_exciter *self = new Xharmonic_exciter();
     if (!self) {
         return NULL;
     }
@@ -247,52 +247,52 @@ Xharmonic_exiter::instantiate(const LV2_Descriptor* descriptor,
     return (LV2_Handle)self;
 }
 
-void Xharmonic_exiter::connect_port(LV2_Handle instance, 
+void Xharmonic_exciter::connect_port(LV2_Handle instance, 
                                    uint32_t port, void* data)
 {
     // connect all ports
-    static_cast<Xharmonic_exiter*>(instance)->connect_all__ports(port, data);
+    static_cast<Xharmonic_exciter*>(instance)->connect_all__ports(port, data);
 }
 
-void Xharmonic_exiter::activate(LV2_Handle instance)
+void Xharmonic_exciter::activate(LV2_Handle instance)
 {
     // allocate needed mem
-    static_cast<Xharmonic_exiter*>(instance)->activate_f();
+    static_cast<Xharmonic_exciter*>(instance)->activate_f();
 }
 
-void Xharmonic_exiter::run(LV2_Handle instance, uint32_t n_samples)
+void Xharmonic_exciter::run(LV2_Handle instance, uint32_t n_samples)
 {
     // run dsp
-    static_cast<Xharmonic_exiter*>(instance)->run_dsp_(n_samples);
+    static_cast<Xharmonic_exciter*>(instance)->run_dsp_(n_samples);
 }
 
-void Xharmonic_exiter::deactivate(LV2_Handle instance)
+void Xharmonic_exciter::deactivate(LV2_Handle instance)
 {
     // free allocated mem
-    static_cast<Xharmonic_exiter*>(instance)->deactivate_f();
+    static_cast<Xharmonic_exciter*>(instance)->deactivate_f();
 }
 
-void Xharmonic_exiter::cleanup(LV2_Handle instance)
+void Xharmonic_exciter::cleanup(LV2_Handle instance)
 {
     // well, clean up after us
-    Xharmonic_exiter* self = static_cast<Xharmonic_exiter*>(instance);
+    Xharmonic_exciter* self = static_cast<Xharmonic_exciter*>(instance);
     self->clean_up();
     delete self;
 }
 
-const LV2_Descriptor Xharmonic_exiter::descriptor =
+const LV2_Descriptor Xharmonic_exciter::descriptor =
 {
     PLUGIN_URI ,
-    Xharmonic_exiter::instantiate,
-    Xharmonic_exiter::connect_port,
-    Xharmonic_exiter::activate,
-    Xharmonic_exiter::run,
-    Xharmonic_exiter::deactivate,
-    Xharmonic_exiter::cleanup,
+    Xharmonic_exciter::instantiate,
+    Xharmonic_exciter::connect_port,
+    Xharmonic_exciter::activate,
+    Xharmonic_exciter::run,
+    Xharmonic_exciter::deactivate,
+    Xharmonic_exciter::cleanup,
     NULL
 };
 
-} // end namespace harmonic_exiter
+} // end namespace harmonic_exciter
 
 ////////////////////////// LV2 SYMBOL EXPORT ///////////////////////////
 
@@ -303,7 +303,7 @@ lv2_descriptor(uint32_t index)
     switch (index)
     {
         case 0:
-            return &harmonic_exiter::Xharmonic_exiter::descriptor;
+            return &harmonic_exciter::Xharmonic_exciter::descriptor;
         default:
             return NULL;
     }

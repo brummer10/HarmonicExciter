@@ -1,4 +1,4 @@
-SUBDIR := Harmonic_Exiter
+SUBDIR := Harmonic_Exciter
 
 .PHONY: $(SUBDIR) libxputty  recurse
 
