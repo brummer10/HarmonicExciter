@@ -19,7 +19,7 @@ jobs:
     - name: compress
       run: |
         cd /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter
-        zip /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter/Harmonic_Exiter.lv2.zip ./Harmonic_Exciter.lv2
+        zip -r /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter/Harmonic_Exiter.lv2.zip ./Harmonic_Exciter.lv2
   
     - name: Create Release
       id: create_release
