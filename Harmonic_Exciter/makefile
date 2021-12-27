@@ -66,6 +66,14 @@ all: $(RESOURCEHEADER) $(EXEC_NAME)
 	@if [ -f ./$(BUNDLE)/$(EXEC_NAME).so ]; then echo "build finish, now run make install"; \
 	else echo "sorry, build failed"; fi
 
+mod : nogui
+	@mkdir -p ./$(BUNDLE)
+	@cp -R ./MOD/* ./$(BUNDLE)
+	@mv ./*.so ./$(BUNDLE)
+	@if [ -f ./$(BUNDLE)/$(EXEC_NAME).so ]; then echo $(BLUE)"build finish, now run make install"; \
+	else echo $(RED)"sorry, build failed"; fi
+	@echo $(NONE)
+
 $(RESOURCEHEADER): $(RESOURCES_OBJ)
 	rm -f $(RESOURCEHEADER)
 	for f in $(RESOURCE_EXTLD); do \
@@ -98,6 +106,10 @@ $(EXEC_NAME):$(RESOURCES_OBJ)
 	$(STRIP) -s -x -X -R .comment -R .note.ABI-tag $(EXEC_NAME).so
 	$(STRIP) -s -x -X -R .comment -R .note.ABI-tag $(EXEC_NAME)_ui.so
 
+nogui : clean
+	$(CXX) $(CXXFLAGS) $(EXEC_NAME).cpp $(LDFLAGS) -o $(EXEC_NAME).so
+	$(STRIP) -s -x -X -R .comment -R .note.ABI-tag $(EXEC_NAME).so
+
 install :
 ifneq ("$(wildcard ./$(BUNDLE))","")
 	@rm -rf $(INSTALL_DIR)/Harmonic_Exiter.lv2
@@ -114,4 +126,5 @@ uninstall :
 
 clean:
 	rm -f *.a *.o *.so xresources.h
+	@rm -rf ./$(BUNDLE)
 
