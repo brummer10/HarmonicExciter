@@ -13,7 +13,7 @@ The HarmonicExciter is based on a half wave clipper, allow to add harmonics to t
 
 ![example workflow](https://github.com/brummer10/HarmonicExciter/actions/workflows/build.yml/badge.svg)
 
-[Harmonic_Exiter.lv2.zip](https://github.com/brummer10/HarmonicExciter/releases/download/Latest/Harmonic_Exiter.lv2.zip)
+[Harmonic_Exciter.lv2.zip](https://github.com/brummer10/HarmonicExciter/releases/download/Latest/Harmonic_Exciter.lv2.zip)
 
 ## Build from source
 

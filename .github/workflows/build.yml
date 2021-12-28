@@ -19,7 +19,15 @@ jobs:
     - name: compress
       run: |
         cd /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter
-        zip -r /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter/Harmonic_Exiter.lv2.zip ./Harmonic_Exciter.lv2
+        zip -r /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter/Harmonic_Exciter.lv2.zip ./Harmonic_Exciter.lv2
+
+    - name: remove tag
+      uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      with:
+        delete_release: false
+        tag_name: Latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
     - name: Create Release
       id: create_release
@@ -39,6 +47,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter/Harmonic_Exiter.lv2.zip
-        asset_name: Harmonic_Exiter.lv2.zip
+        asset_path: /home/runner/work/HarmonicExciter/HarmonicExciter/Harmonic_Exciter/Harmonic_Exciter.lv2.zip
+        asset_name: Harmonic_Exciter.lv2.zip
         asset_content_type: application/zip
