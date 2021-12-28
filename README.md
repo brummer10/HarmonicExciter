@@ -9,7 +9,13 @@ The HarmonicExciter is based on a half wave clipper, allow to add harmonics to t
 - libcairo2-dev
 - libx11-dev
 
-## Build
+## Binary
+
+![example workflow](https://github.com/brummer10/HarmonicExciter/actions/workflows/build.yml/badge.svg)
+
+[Harmonic_Exiter.lv2.zip](https://github.com/brummer10/HarmonicExciter/releases/download/Latest/Harmonic_Exiter.lv2.zip)
+
+## Build from source
 
 - git submodule init
 - git submodule update
